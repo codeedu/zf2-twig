@@ -1,77 +1,31 @@
-ZendSkeletonApplication
+Aplicação Multi-Layout com Zend Framework 2
 =======================
 
-Introduction
+Sobre este exemplo
 ------------
-This is a simple, skeleton application using the ZF2 MVC layer and module
-systems. This application is meant to be used as a starting place for those
-looking to get their feet wet with ZF2.
+Continuando na toada de front-end, continuarei falando de uma tecnologia que integrada ao Zend Framework 2 traz uma gama de benefícios imensuráveis, 
+que é o Twig. Se você nunca trabalhou ou ouviu falar dele, clique aqui. Twig é uma tecnologia baseada no PHP, mas, 
+com uma proposta diferente: modelar os templates da aplicação. 
 
-Installation
-------------
+Sabemos que ao construir uma aplicação PHP, teremos arquivos .php, .phtml ou qualquer extensão que seja, 
+com instruções PHP misturadas com as tags HTML, porém, se formos pensar do ponto de vista conceitual de front-end e templates, 
+é algo confuso e de difícil manutenção, porque, o código PHP misturado ao HTML acaba poluindo a legibilidade do código, 
+por todas as questões de sintaxes de uma linguagem voltada para o back-end. Além de ter uma sintaxe mais amigável e legível aos templates, 
+o Twig traz muitos outros benefícios. Um dos principais para mim é o ganho de desempenho de renderização do código HTML. 
+Mas, aí você se pergunta: embutindo mais uma tecnologia na aplicação que ainda virará um código PHP para depois ser gerado 
+um HTML só pode fazer a aplicação ficar mais lenta, pra quê isso? É desnecessário!
 
-Using Composer (recommended)
-----------------------------
-The recommended way to get a working copy of this project is to clone the repository
-and use `composer` to install dependencies using the `create-project` command:
+Pois, eu afirmo com certeza que não!
 
-    curl -s https://getcomposer.org/installer | php --
-    php composer.phar create-project -sdev --repository-url="https://packages.zendframework.com" zendframework/skeleton-application path/to/install
+Até já vi em alguns fóruns por aí, especialmente no Google Groups, de pessoas falando que o Twig atrapalha a aplicação. 
+Um dia vi que uma pessoa perguntou qual a importância do Twig, outro falou: apenas usa-lo, então, uma outra pessoa responde: 
+Você está acrescentando mais uma tecnologia na aplicação que vai atrasar o tempo de execução do código, 
+já que do Twig ainda terá que ser gerado um código PHP e depois o HTML, então, é desnecessário, não vale a pena.
 
-Alternately, clone the repository and manually invoke `composer` using the shipped
-`composer.phar`:
+Diante do que falei no final do parágrafo acima, é preciso, no mínimo, ler um pouco da documentação da biblioteca, 
+para se ter o mínimo de conhecimento ao se falar sobre alguma coisa... para não sair falando qualquer coisa, 
+é preciso primeiro conhecer... O Twig, internamente, gera classes com código de nossos templates fazendo uma série de otimizações,
+desde a reduções de espaços desnecessários, redução de código, etc, portanto, teremos um ganho de performance comparado a se não estivéssemos usando o Twig.
 
-    cd my/project/dir
-    git clone git://github.com/zendframework/ZendSkeletonApplication.git
-    cd ZendSkeletonApplication
-    php composer.phar self-update
-    php composer.phar install
-
-(The `self-update` directive is to ensure you have an up-to-date `composer.phar`
-available.)
-
-Another alternative for downloading the project is to grab it via `curl`, and
-then pass it to `tar`:
-
-    cd my/project/dir
-    curl -#L https://github.com/zendframework/ZendSkeletonApplication/tarball/master | tar xz --strip-components=1
-
-You would then invoke `composer` to install dependencies per the previous
-example.
-
-Using Git submodules
---------------------
-Alternatively, you can install using native git submodules:
-
-    git clone git://github.com/zendframework/ZendSkeletonApplication.git --recursive
-
-Web Server Setup
-----------------
-
-### PHP CLI Server
-
-The simplest way to get started if you are using PHP 5.4 or above is to start the internal PHP cli-server in the root directory:
-
-    php -S 0.0.0.0:8080 -t public/ public/index.php
-
-This will start the cli-server on port 8080, and bind it to all network
-interfaces.
-
-**Note: ** The built-in CLI server is *for development only*.
-
-### Apache Setup
-
-To setup apache, setup a virtual host to point to the public/ directory of the
-project and you should be ready to go! It should look something like below:
-
-    <VirtualHost *:80>
-        ServerName zf2-tutorial.localhost
-        DocumentRoot /path/to/zf2-tutorial/public
-        SetEnv APPLICATION_ENV "development"
-        <Directory /path/to/zf2-tutorial/public>
-            DirectoryIndex index.php
-            AllowOverride All
-            Order allow,deny
-            Allow from all
-        </Directory>
-    </VirtualHost>
+Neste tutorial usaremos a biblioteca de terceiro, chamada ZfcTwig, que faz a integração necessária para usarmos o Twig com Zend Framework 2.
+[Veja o link do tutorial](http://www.schoolofnet.com/2015/03/como-usar-twig-com-zend-framework-2/)
